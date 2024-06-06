@@ -1,0 +1,94 @@
+@import url("https://cdn-uicons.flaticon.com/2.4.0/uicons-bold-straight/css/uicons-bold-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.4.0/uicons-regular-straight/css/uicons-regular-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.4.0/uicons-thin-rounded/css/uicons-thin-rounded.css");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Tiny5&display=swap");
+
+body {
+  background-color: #292929;
+  height: 1400px;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  height: 25%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  position: fixed;
+}
+
+.title {
+  height: 100%;
+  width: 100%;
+  background-color: #2200807c;
+  padding-top: 1px;
+  margin: 0px;
+}
+
+.tit {
+  height: 80%;
+  width: 90%;
+  padding-left: 5%;
+  padding-top: 0px;
+  margin-top: 0px;
+  color: white;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200px;
+  font-style: normal;
+  font-size: 80px;
+}
+
+nav {
+  height: 4%;
+  width: 100%;
+  margin-top: 8%;
+  background-color: #22008000;
+  padding-left: 5%;
+  position: fixed;
+}
+
+.nv {
+  float: left;
+  height: 100%;
+  width: 20%;
+  /* max-width: 200px;
+  max-height: 100px; */
+}
+
+i {
+  /* color: white; */
+  height: 100%;
+  width: 20%;
+  float: left;
+  font-size: 30px;
+  padding-top: 2%;
+}
+
+.bt {
+  height: 80%;
+  width: 80%;
+  border-style: none;
+  background-color: #ffffff00;
+  color: white;
+}
+
+.op {
+  width: 80%;
+  height: 100%;
+  text-align: start;
+  padding-left: 30%;
+}
+
+option {
+  list-style: none;
+}
+
+main {
+  margin-top: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+  position: absolute;
+  color: white;
+}
