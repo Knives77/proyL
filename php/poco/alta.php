@@ -1,58 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
-    $id = $_GET["editar"];
-    // Datos de conexión a la base de datos
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "celulares";
-
-    // Crear conexión
-    $conexion = new mysqli($servername, $username, $password, $database);
-    // Verificar conexión
-    if ($conexion->connect_error) {
-        die("Error de conexión: " . $conexion->connect_error);
-    }
-
-    $sql = "SELECT * FROM samsung WHERE id = ?";
-    if ($stmt = $conexion->prepare($sql)) {
-        $stmt->bind_param("i", $id);
-
-        // Ejecutar la declaración
-        if ($stmt->execute()) {
-            $resultado = $stmt->get_result();
-            if ($resultado->num_rows > 0) {
-                $registro = $resultado->fetch_assoc();
-            } else {
-                echo "<script>
-                alert('No se encontró el registro con el ID proporcionado.');
-                location.href = './editar.php';
-                </script>";
-                exit;
-            }
-        } else {
-            echo "Error al seleccionar el registro: " . $stmt->error;
-            exit;
-        }
-
-        // Cerrar la declaración
-        $stmt->close();
-    } else {
-        echo "Error al preparar la declaración: " . $conexion->error;
-        exit;
-    }
-
-    // Cerrar la conexión
-    $conexion->close();
-} else {
-    echo "<script>
-    alert('ID no proporcionado.');
-    location.href = './editar.php';
-    </script>";
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -166,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
             <!-- 4 -->
             <div class="nv">
                 <select class="bt" id="samsung">
-                    <option disabled>
+                    <option selected disabled>
                         <h3 class="op">Samsung</h3>
                     </option>
                     <option value="consulta3">
@@ -178,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
                     <option value="bajas3">
                         <h3 class="op">Bajas</h3>
                     </option>
-                    <option selected value="editar3">
+                    <option value="editar3">
                         <h3 class="op">Editar</h3>
                     </option>
                 </select>
@@ -186,13 +131,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
             <!-- 5 -->
             <div class="nv">
                 <select class="bt" id="poco">
-                    <option selected disabled>
+                    <option disabled>
                         <h3 class="op">POCO</h3>
                     </option>
                     <option value="consulta4">
                         <h3 class="op">Consulta</h3>
                     </option>
-                    <option value="altas4">
+                    <option selected value="altas4">
                         <h3 class="op">Altas</h3>
                     </option>
                     <option value="bajas4">
@@ -214,30 +159,26 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
         <script>
             function confirmarEliminacion(event) {
                 var id = document.getElementById('subir').value;
-                var confirmar = confirm("¿Estás seguro de que deseas actualizar este registro?");
+                var confirmar = confirm("¿Estás seguro de que deseas subir el registro?");
                 if (!confirmar) {
                     event.preventDefault(); // Evita el envío del formulario
                 }
             }
         </script>
         <div class="content" id="content">
-            <h2 style="padding-top: 1%; padding-bottom: 2%">Editar - POCO</h2>
-            <form action="actualizar.php" method="POST" enctype="multipart/form-data"
-                onsubmit="confirmarEliminacion(event)">
-                <input type="hidden" name="id" value="<?php echo $registro['id']; ?>">
+            <h2 style="padding-top: 1%; padding-bottom: 2%">Alta - POCO</h2>
+            <form action="subir.php" method="POST" enctype="multipart/form-data" onsubmit="confirmarEliminacion(event)">
                 <label for="modelo">Modelo:</label>
-                <input type="text" name="modelo" id="modelo" value="<?php echo $registro['modelo']; ?>" required><br>
+                <input type="text" name="modelo" id="modelo" required><br>
                 <label for="año">Año de Lanzamiento:</label>
-                <input type="number" name="año" id="año" min="2000" max="2100"
-                    value="<?php echo $registro['año_lanzamiento']; ?>" required><br>
+                <input type="number" name="año" id="año" min="2000" max="2100" required><br>
                 <label for="gama">Gama:</label>
-                <input type="text" name="gama" id="gama" value="<?php echo $registro['gama']; ?>" required><br>
+                <input type="text" name="gama" id="gama" required><br>
                 <label for="imagen">Imagen:</label>
-                <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg" required><br>
+                <input type="file" name="imagen" id="imagen" required accept="image/png, image/jpeg"><br>
                 <label for="precio">Precio:</label>
-                <input type="number" name="precio" id="precio" min="0" step="0.01"
-                    value="<?php echo $registro['precio']; ?>" required><br>
-                <input type="submit" value="Actualizar" id="subir">
+                <input type="number" name="precio" id="precio" min="0" step="0.01" required><br>
+                <input type="submit" value="Subir" id="subir">
                 <input type="reset" value="Reset">
             </form>
 

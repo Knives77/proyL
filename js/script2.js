@@ -74,12 +74,12 @@ samsung.addEventListener("change", function () {
 poco.addEventListener("change", function () {
   const option5 = poco.value;
   if (option5 == "consulta4") {
-    alert(option5);
+    location.href = "../poco/consulta.php";
   } else if (option5 == "altas4") {
-    alert(option5);
+    location.href = "../poco/alta.php";
   } else if (option5 == "bajas4") {
-    alert(option5);
+    location.href = "../poco/baja.php";
   } else if (option5 == "editar4") {
-    alert(option5);
+    location.href = "../poco/editar.php";
   }
 });
