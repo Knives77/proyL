@@ -9,7 +9,7 @@
   <body>
     <header>
       <div class="title">
-        <h1 class="tit">Título</h1>
+        <h1 class="tit">Celulares</h1>
       </div>
       <nav>
         <!-- 1 -->
@@ -26,7 +26,7 @@
         <!-- 2 -->
         <div class="nv">
           <select class="bt" id="xiaomi">
-            <option selected>
+            <option selected disabled>
               <h3 class="op">Xiaomi</h3>
             </option>
             <option value="consulta1">
@@ -45,8 +45,8 @@
         </div>
         <!-- 3 -->
         <div class="nv">
-          <select class="bt">
-            <option selected>
+          <select class="bt" id="iphone">
+            <option selected disabled>
               <h3 class="op">iPhone</h3>
             </option>
             <option value="consulta2">
@@ -65,8 +65,8 @@
         </div>
         <!-- 4 -->
         <div class="nv">
-          <select class="bt">
-            <option selected>
+          <select class="bt" id="samsung">
+            <option selected disabled>
               <h3 class="op">Samsung</h3>
             </option>
             <option value="consulta3">
@@ -85,8 +85,8 @@
         </div>
         <!-- 5 -->
         <div class="nv">
-          <select class="bt">
-            <option selected>
+          <select class="bt" id="poco">
+            <option selected disabled>
               <h3 class="op">POCO</h3>
             </option>
             <option value="consulta4">
@@ -95,7 +95,7 @@
             <option value="altas4">
               <h3 class="op">Altas</h3>
             </option>
-            <option value="baja4">
+            <option value="bajas4">
               <h3 class="op">Bajas</h3>
             </option>
             <option value="editar4">
@@ -105,8 +105,46 @@
         </div>
       </nav>
     </header>
-    <main></main>
-    <footer></footer>
+    <main>
+      <div class="content hidden" id="content">
+        <h2 style="padding-top: 1%; padding-bottom: 2%">Celulares</h2>
+        <p class="text">
+          Los celulares son dispositivos portátiles que permiten realizar
+          llamadas, enviar mensajes y acceder a Internet. Han evolucionado desde
+          la primera generación (1G) en los años 80, con tecnología analógica,
+          hasta la actual quinta generación (5G), que ofrece conexiones
+          ultrarrápidas. Un celular incluye componentes como el procesador, la
+          memoria RAM, el almacenamiento interno, la pantalla, la batería y las
+          cámaras. El sistema operativo, como Android o iOS, gestiona estos
+          recursos y proporciona una interfaz de usuario. Las principales
+          funciones de un celular incluyen llamadas, mensajes, acceso a
+          Internet, aplicaciones, cámaras, GPS y métodos de seguridad
+          biométrica. También soportan conectividad mediante WiFi, Bluetooth y
+          NFC. Las tendencias actuales abarcan la expansión de la tecnología 5G,
+          el uso de inteligencia artificial, pantallas flexibles, mejoras en la
+          seguridad y un enfoque en la sostenibilidad. Las marcas principales
+          incluyen Apple (iPhones con iOS) y Samsung (serie Galaxy con Android).
+        </p>
+        <img src="./img/img1.gif" alt="m" class="imgC" />
+      </div>
+      <div class="galeria" id="galeria">
+        <h2 style="padding-bottom: 2%">Galeria</h2>
+        <section class="gal">
+          <img src="./img/galeria/1.jpg" alt="m" />
+          <img src="./img/galeria/2.jpg" alt="m" />
+          <img src="./img/galeria/3.jpg" alt="m" />
+          <img src="./img/galeria/4.jpg" alt="m" />
+          <img src="./img/galeria/5.jpg" alt="m" />
+          <img src="./img/galeria/6.jpg" alt="m" />
+          <img src="./img/galeria/7.jpg" alt="m" />
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="content-footer">
+        <p class="pp">&copy; 2024 Celulares. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   </body>
   <script src="./js/script.js"></script>
 </html>
