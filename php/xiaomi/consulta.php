@@ -7,7 +7,7 @@
   <title>Teléfonos</title>
   <link rel="stylesheet" href="../../css/style.css" />
   <style>
-    <style>table {
+    table {
       border-collapse: collapse;
       width: 100%;
     }
@@ -52,10 +52,10 @@
       <!-- 2 -->
       <div class="nv">
         <select class="bt" id="xiaomi">
-          <option selected disabled>
+          <option disabled>
             <h3 class="op">Xiaomi</h3>
           </option>
-          <option value="consulta1">
+          <option selected value="consulta1">
             <h3 class="op">Consulta</h3>
           </option>
           <option value="altas1">
