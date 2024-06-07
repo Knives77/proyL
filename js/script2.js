@@ -38,25 +38,25 @@ cerrar.addEventListener("click", function () {
 xiaomi.addEventListener("change", function () {
   const option2 = xiaomi.value;
   if (option2 == "consulta1") {
-    location.href = "./consulta.php";
+    location.href = "../xiaomi/consulta.php";
   } else if (option2 == "altas1") {
-    location.href = "./alta.php";
+    location.href = "../xiaomi/alta.php";
   } else if (option2 == "bajas1") {
-    location.href = "./baja.php";
+    location.href = "../xiaomi/baja.php";
   } else if (option2 == "editar1") {
-    location.href = "./editar.php";
+    location.href = "../xiaomi/editar.php";
   }
 });
 iphone.addEventListener("change", function () {
   const option3 = iphone.value;
   if (option3 == "consulta2") {
-    alert(option3);
+    location.href = "../iphone/consulta.php";
   } else if (option3 == "altas2") {
-    alert(option3);
+    location.href = "../iphone/alta.php";
   } else if (option3 == "bajas2") {
-    alert(option3);
+    location.href = "../iphone/baja.php";
   } else if (option3 == "editar2") {
-    alert(option3);
+    location.href = "../iphone/editar.php";
   }
 });
 samsung.addEventListener("change", function () {

@@ -55,13 +55,13 @@ xiaomi.addEventListener("change", function () {
 iphone.addEventListener("change", function () {
   const option3 = iphone.value;
   if (option3 == "consulta2") {
-    alert(option3);
+    location.href = "./php/iphone/consulta.php";
   } else if (option3 == "altas2") {
-    alert(option3);
+    location.href = "./php/iphone/alta.php";
   } else if (option3 == "bajas2") {
-    alert(option3);
+    location.href = "./php/iphone/baja.php";
   } else if (option3 == "editar2") {
-    alert(option3);
+    location.href = "./php/iphone/editar.php";
   }
 });
 samsung.addEventListener("change", function () {

@@ -23,12 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imagen = $_FILES["imagen"];
     $imagenNombre = $imagen["name"];
     $imagenTmpNombre = $imagen["tmp_name"];
-    $imagenFolder = "../img/upload/xiaomi/" . $imagenNombre;
+    $imagenFolder = "../img/upload/apple/" . $imagenNombre;
 
     // Validar y mover la imagen subida
     if (move_uploaded_file($imagenTmpNombre, $imagenFolder)) {
         // Actualizar el registro en la base de datos
-        $sql = "UPDATE xiaomi SET modelo=?, año_lanzamiento=?, gama=?, img=?, precio=? WHERE id=?";
+        $sql = "UPDATE iphone SET modelo=?, año_lanzamiento=?, gama=?, img=?, precio=? WHERE id=?";
 
         if ($stmt = $conexion->prepare($sql)) {
             $stmt->bind_param("sissdi", $modelo, $año, $gama, $imagenFolder, $precio, $id);

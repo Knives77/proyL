@@ -1,58 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
-    $id = $_GET["editar"];
-    // Datos de conexión a la base de datos
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "celulares";
-
-    // Crear conexión
-    $conexion = new mysqli($servername, $username, $password, $database);
-    // Verificar conexión
-    if ($conexion->connect_error) {
-        die("Error de conexión: " . $conexion->connect_error);
-    }
-
-    $sql = "SELECT * FROM xiaomi WHERE id = ?";
-    if ($stmt = $conexion->prepare($sql)) {
-        $stmt->bind_param("i", $id);
-
-        // Ejecutar la declaración
-        if ($stmt->execute()) {
-            $resultado = $stmt->get_result();
-            if ($resultado->num_rows > 0) {
-                $registro = $resultado->fetch_assoc();
-            } else {
-                echo "<script>
-                alert('No se encontró el registro con el ID proporcionado.');
-                location.href = './editar.php';
-                </script>";
-                exit;
-            }
-        } else {
-            echo "Error al seleccionar el registro: " . $stmt->error;
-            exit;
-        }
-
-        // Cerrar la declaración
-        $stmt->close();
-    } else {
-        echo "Error al preparar la declaración: " . $conexion->error;
-        exit;
-    }
-
-    // Cerrar la conexión
-    $conexion->close();
-} else {
-    echo "<script>
-    alert('ID no proporcionado.');
-    location.href = './editar.php';
-    </script>";
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -62,6 +7,28 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
     <title>Teléfonos</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid white;
+        }
+
+        th {
+            background-color: #19005f;
+            color: white;
+        }
+
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+
         form {
             background-color: #19005f;
             padding: 20px;
@@ -104,6 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
             background-color: #45a049;
         }
     </style>
+    </style>
 </head>
 
 <body>
@@ -126,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
             <!-- 2 -->
             <div class="nv">
                 <select class="bt" id="xiaomi">
-                    <option disabled>
+                    <option selected disabled>
                         <h3 class="op">Xiaomi</h3>
                     </option>
                     <option value="consulta1">
@@ -138,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
                     <option value="bajas1">
                         <h3 class="op">Bajas</h3>
                     </option>
-                    <option selected value="editar1">
+                    <option value="editar1">
                         <h3 class="op">Editar</h3>
                     </option>
                 </select>
@@ -146,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
             <!-- 3 -->
             <div class="nv">
                 <select class="bt" id="iphone">
-                    <option selected disabled>
+                    <option disabled>
                         <h3 class="op">iPhone</h3>
                     </option>
                     <option value="consulta2">
@@ -155,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
                     <option value="altas2">
                         <h3 class="op">Altas</h3>
                     </option>
-                    <option value="bajas2">
+                    <option selected value="bajas2">
                         <h3 class="op">Bajas</h3>
                     </option>
                     <option value="editar2">
@@ -194,7 +162,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
                     </option>
                     <option value="altas4">
                         <h3 class="op">Altas</h3>
-                    </option>
                     <option value="bajas4">
                         <h3 class="op">Bajas</h3>
                     </option>
@@ -213,34 +180,65 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
     <main>
         <script>
             function confirmarEliminacion(event) {
-                var id = document.getElementById('subir').value;
-                var confirmar = confirm("¿Estás seguro de que deseas actualizar este registro?");
+                var id = document.getElementById('eliminar').value;
+                var confirmar = confirm("¿Estás seguro de que deseas eliminar el registro con ID: " + id + "?");
                 if (!confirmar) {
                     event.preventDefault(); // Evita el envío del formulario
                 }
             }
         </script>
         <div class="content" id="content">
-            <h2 style="padding-top: 1%; padding-bottom: 2%">Editar - Xiaomi</h2>
-            <form action="actualizar.php" method="POST" enctype="multipart/form-data"
-                onsubmit="confirmarEliminacion(event)">
-                <input type="hidden" name="id" value="<?php echo $registro['id']; ?>">
-                <label for="modelo">Modelo:</label>
-                <input type="text" name="modelo" id="modelo" value="<?php echo $registro['modelo']; ?>" required><br>
-                <label for="año">Año de Lanzamiento:</label>
-                <input type="number" name="año" id="año" min="2000" max="2100"
-                    value="<?php echo $registro['año_lanzamiento']; ?>" required><br>
-                <label for="gama">Gama:</label>
-                <input type="text" name="gama" id="gama" value="<?php echo $registro['gama']; ?>" required><br>
-                <label for="imagen">Imagen:</label>
-                <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg" required><br>
-                <label for="precio">Precio:</label>
-                <input type="number" name="precio" id="precio" min="0" step="0.01"
-                    value="<?php echo $registro['precio']; ?>" required><br>
-                <input type="submit" value="Actualizar" id="subir">
+            <h2 style="padding-top: 1%; padding-bottom: 2%">Bajas - iPhone</h2>
+            <form action="eliminar.php" method="POST" onsubmit="confirmarEliminacion(event)">
+                <label for="eliminar">ID: </label>
+                <input type="number" name="eliminar" id="eliminar" required>
+                <input type="submit" value="Eliminar">
                 <input type="reset" value="Reset">
+                <br>
             </form>
+            <br>
+            <?php
+            $servername = "localhost";
+            $username = "root"; // Cambia esto por tu nombre de usuario de MySQL
+            $password = "";
+            $database = "celulares"; // Cambia esto por el nombre de tu base de datos
+            
+            // Crear conexión
+            $conexion = new mysqli($servername, $username, $password, $database);
 
+            // Verificar la conexión
+            if ($conexion->connect_error) {
+                die("Error de conexión: " . $conexion->connect_error);
+            }
+            // Realizar la consulta
+            $sql = "SELECT * FROM iPhone";
+            $resultado = $conexion->query($sql);
+            // Verificar si hay resultados
+            if ($resultado->num_rows > 0) {
+                // Comenzar a imprimir la tabla HTML
+                echo "<table border='1'>";
+                echo "<tr><th>ID</th><th>Modelo</th><th>Año de Lanzamiento</th><th>Gama</th><th>Imagen</th><th>Precio</th></tr>";
+
+                // Iterar sobre los resultados y mostrar cada fila
+                while ($fila = $resultado->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $fila["id"] . "</td>";
+                    echo "<td>" . $fila["modelo"] . "</td>";
+                    echo "<td>" . $fila["año_lanzamiento"] . "</td>";
+                    echo "<td>" . $fila["gama"] . "</td>";
+                    echo "<td><img src='" . $fila["img"] . "' alt='imagen del teléfono'></td>";
+                    echo "<td>" . $fila["precio"] . "</td>";
+                    echo "</tr>";
+                }
+                // Cerrar la tabla
+                echo "</table>";
+            } else {
+                echo "No se encontraron resultados.";
+            }
+
+            // Cerrar la conexión a la base de datos
+            $conexion->close();
+            ?>
         </div>
     </main>
     <footer>

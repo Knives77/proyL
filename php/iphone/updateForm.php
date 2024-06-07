@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
         die("Error de conexión: " . $conexion->connect_error);
     }
 
-    $sql = "SELECT * FROM xiaomi WHERE id = ?";
+    $sql = "SELECT * FROM iphone WHERE id = ?";
     if ($stmt = $conexion->prepare($sql)) {
         $stmt->bind_param("i", $id);
 
@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
                     <option value="bajas1">
                         <h3 class="op">Bajas</h3>
                     </option>
-                    <option selected value="editar1">
+                    <option value="editar1">
                         <h3 class="op">Editar</h3>
                     </option>
                 </select>
@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
             <!-- 3 -->
             <div class="nv">
                 <select class="bt" id="iphone">
-                    <option selected disabled>
+                    <option disabled>
                         <h3 class="op">iPhone</h3>
                     </option>
                     <option value="consulta2">
@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
                     <option value="bajas2">
                         <h3 class="op">Bajas</h3>
                     </option>
-                    <option value="editar2">
+                    <option selected value="editar2">
                         <h3 class="op">Editar</h3>
                     </option>
                 </select>
