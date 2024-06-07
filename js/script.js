@@ -67,13 +67,13 @@ iphone.addEventListener("change", function () {
 samsung.addEventListener("change", function () {
   const option4 = samsung.value;
   if (option4 == "consulta3") {
-    alert(option4);
+    location.href = "./php/samsung/consulta.php";
   } else if (option4 == "altas3") {
-    alert(option4);
+    location.href = "./php/samsung/alta.php";
   } else if (option4 == "bajas3") {
-    alert(option4);
+    location.href = "./php/samsung/baja.php";
   } else if (option4 == "editar3") {
-    alert(option4);
+    location.href = "./php/samsung/editar.php";
   }
 });
 poco.addEventListener("change", function () {
