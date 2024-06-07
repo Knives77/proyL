@@ -5,19 +5,14 @@ const iphone = document.getElementById("iphone");
 const samsung = document.getElementById("samsung");
 const poco = document.getElementById("poco");
 
-const content = document.getElementById("content");
-const galeria = document.getElementById("galeria");
-
 let exit = false;
 
 loby.addEventListener("change", function () {
   const option1 = loby.value;
   if (option1 == "inicio") {
-    galeria.classList.add("hidden");
-    content.classList.remove("hidden");
+    location.href = "../../index.html";
   } else if (option1 == "galeria") {
-    content.classList.add("hidden");
-    galeria.classList.remove("hidden");
+    location.href = "../../index.html";
   }
 });
 
@@ -43,13 +38,13 @@ cerrar.addEventListener("click", function () {
 xiaomi.addEventListener("change", function () {
   const option2 = xiaomi.value;
   if (option2 == "consulta1") {
-    location.href = "./php/xiaomi/consulta.php";
+    location.href = "./consulta.php";
   } else if (option2 == "altas1") {
-    location.href = "./php/xiaomi/alta.php";
+    location.href = "./alta.php";
   } else if (option2 == "bajas1") {
-    location.href = "./php/xiaomi/baja.php";
+    location.href = "./baja.php";
   } else if (option2 == "editar1") {
-    location.href = "./php/xiaomi/editar.php";
+    location.href = "./editar.php";
   }
 });
 iphone.addEventListener("change", function () {
