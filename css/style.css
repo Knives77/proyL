@@ -101,7 +101,7 @@ main {
 
 .content {
   width: 90%;
-  height: auto;
+  height: 2500px;
   margin-left: 5%;
   text-align: center;
 }
@@ -146,7 +146,7 @@ footer {
 
 .galeria {
   width: 90%;
-  height: 100%;
+  height: 500px;
   text-align: center;
   padding-left: 5%;
 }
@@ -154,7 +154,7 @@ footer {
 section {
   display: flex;
   width: 80%;
-  height: 40%;
+  height: 400px;
   padding-left: 10%;
 }
 

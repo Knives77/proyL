@@ -29,7 +29,6 @@
       height: auto;
     }
   </style>
-  </style>
 </head>
 
 <body>
@@ -138,7 +137,7 @@
   </header>
   <main>
     <div class="content" id="content">
-      <h2 style="padding-top: 1%; padding-bottom: 2%">Celulares</h2>
+      <h2 style="padding-top: 1%; padding-bottom: 2%">Consulta - Xiaomi</h2>
       <?php
       $servername = "localhost";
       $username = "root"; // Cambia esto por tu nombre de usuario de MySQL

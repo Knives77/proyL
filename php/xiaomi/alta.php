@@ -156,9 +156,18 @@
         </nav>
     </header>
     <main>
+        <script>
+            function confirmarEliminacion(event) {
+                var id = document.getElementById('subir').value;
+                var confirmar = confirm("¿Estás seguro de que deseas subir el registro?");
+                if (!confirmar) {
+                    event.preventDefault(); // Evita el envío del formulario
+                }
+            }
+        </script>
         <div class="content" id="content">
-            <h2 style="padding-top: 1%; padding-bottom: 2%">Celulares</h2>
-            <form action="subir.php" method="POST" enctype="multipart/form-data">
+            <h2 style="padding-top: 1%; padding-bottom: 2%">Alta - Xiaomi</h2>
+            <form action="subir.php" method="POST" enctype="multipart/form-data" onsubmit="confirmarEliminacion(event)">
                 <label for="modelo">Modelo:</label>
                 <input type="text" name="modelo" id="modelo" required><br>
                 <label for="año">Año de Lanzamiento:</label>
@@ -169,8 +178,8 @@
                 <input type="file" name="imagen" id="imagen" required accept="image/png, image/jpeg"><br>
                 <label for="precio">Precio:</label>
                 <input type="number" name="precio" id="precio" min="0" step="0.01" required><br>
-                <input type="submit" value="Subir">
-                <input type="reset">
+                <input type="submit" value="Subir" id="subir">
+                <input type="reset" value="Reset">
             </form>
 
         </div>

@@ -188,7 +188,7 @@
             }
         </script>
         <div class="content" id="content">
-            <h2 style="padding-top: 1%; padding-bottom: 2%">Eliminar</h2>
+            <h2 style="padding-top: 1%; padding-bottom: 2%">Bajas - Xiaomi</h2>
             <form action="eliminar.php" method="POST" onsubmit="confirmarEliminacion(event)">
                 <label for="eliminar">ID: </label>
                 <input type="number" name="eliminar" id="eliminar" required>
