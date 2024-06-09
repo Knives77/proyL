@@ -87,6 +87,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
             box-sizing: border-box;
         }
 
+        #imgC {
+            width: 30px;
+            height: 30px;
+        }
+
+        img {
+            width: 50%;
+            height: auto;
+        }
+
         input[type="submit"],
         input[type="reset"] {
             background-color: #4CAF50;
@@ -232,8 +242,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["editar"])) {
                     value="<?php echo $registro['año_lanzamiento']; ?>" required><br>
                 <label for="gama">Gama:</label>
                 <input type="text" name="gama" id="gama" value="<?php echo $registro['gama']; ?>" required><br>
+                <label for="imagenC">¿Desea cambiar la imagen?:</label>
+                <input type="checkbox" name="imgC" id="imgC">
                 <label for="imagen">Imagen:</label>
-                <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg" required><br>
+                <img src="<?php echo $registro['img']; ?>" alt="a">
+                <input disabled type="file" name="imagen" id="imagen" accept="image/png, image/jpeg" required><br>
                 <label for="precio">Precio:</label>
                 <input type="number" name="precio" id="precio" min="0" step="0.01"
                     value="<?php echo $registro['precio']; ?>" required><br>

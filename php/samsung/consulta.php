@@ -135,7 +135,7 @@
       </div>
     </nav>
   </header>
-  <main>
+  <main style="background-image: url('../../img/8.jpeg');">
     <div class="content" id="content">
       <h2 style="padding-top: 1%; padding-bottom: 2%">Consulta - Samsung</h2>
       <?php

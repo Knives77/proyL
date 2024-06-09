@@ -177,7 +177,7 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main style="background-image: url('../../img/7.jpg');">
         <script>
             function confirmarEliminacion(event) {
                 var id = document.getElementById('eliminar').value;

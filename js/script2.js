@@ -4,6 +4,7 @@ const xiaomi = document.getElementById("xiaomi");
 const iphone = document.getElementById("iphone");
 const samsung = document.getElementById("samsung");
 const poco = document.getElementById("poco");
+const conf = document.getElementById("imgC");
 
 let exit = false;
 
@@ -81,5 +82,13 @@ poco.addEventListener("change", function () {
     location.href = "../poco/baja.php";
   } else if (option5 == "editar4") {
     location.href = "../poco/editar.php";
+  }
+});
+
+conf.addEventListener("change", function () {
+  if (this.checked) {
+    document.getElementById("imagen").disabled = false;
+  } else {
+    document.getElementById("imagen").disabled = true;
   }
 });

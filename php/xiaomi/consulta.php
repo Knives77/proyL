@@ -28,10 +28,16 @@
       max-width: 100px;
       height: auto;
     }
+    body
+    {
+      background-image: url('../img/img1.gif') ;
+    }
+    }
+    
   </style>
 </head>
 
-<body>
+<body >
   <header>
     <div class="title">
       <h1 class="tit">Celulares</h1>
@@ -135,7 +141,7 @@
       </div>
     </nav>
   </header>
-  <main>
+  <main style="background-image: url('../../img/2.jpeg');">
     <div class="content" id="content">
       <h2 style="padding-top: 1%; padding-bottom: 2%">Consulta - Xiaomi</h2>
       <?php
