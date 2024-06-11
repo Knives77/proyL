@@ -28,16 +28,14 @@
       max-width: 100px;
       height: auto;
     }
-    body
-    {
-      background-image: url('../img/img1.gif') ;
+
+    body {
+      background-image: url('../img/img1.gif');
     }
-    }
-    
   </style>
 </head>
 
-<body >
+<body>
   <header>
     <div class="title">
       <h1 class="tit">Celulares</h1>

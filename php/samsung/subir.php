@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Preparar la consulta SQL
     $sql = "INSERT INTO samsung (modelo, año_lanzamiento, gama, img, precio) VALUES (?, ?, ?, ?, ?)";
     $declaracion = $conexion->prepare($sql);
-    $declaracion->bind_param("siisd", $modelo, $año, $gama, $imagen_ruta, $precio);
+    $declaracion->bind_param("sissd", $modelo, $año, $gama, $imagen_ruta, $precio);
 
     // Ejecutar la consulta
     if ($declaracion->execute()) {
